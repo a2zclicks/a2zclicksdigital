@@ -265,6 +265,22 @@
             position: relative;
             z-index: 2;
         }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.65rem 1.15rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(12px);
+        }
         
         .hero-title {
             font-size: 4rem;
@@ -294,6 +310,76 @@
         @keyframes gradient-shift {
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 2.25rem;
+        }
+
+        .hero-stat-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 22px;
+            padding: 1.25rem 1.1rem;
+            backdrop-filter: blur(14px);
+            text-align: left;
+        }
+
+        .hero-stat-card strong {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.9rem;
+            line-height: 1;
+            margin-bottom: 0.45rem;
+            color: white;
+        }
+
+        .hero-stat-card span {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .trust-strip {
+            position: relative;
+            z-index: 2;
+            margin-top: 3rem;
+            padding: 1rem 1.25rem;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+        }
+
+        .trust-strip-label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.66);
+            margin-bottom: 0.9rem;
+        }
+
+        .trust-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.9rem;
+        }
+
+        .trust-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.07);
+            color: white;
+            font-size: 0.92rem;
+            font-weight: 500;
         }
         
         /* Modern Button Styles */
@@ -500,67 +586,180 @@
         
         /* Portfolio Section */
         .portfolio-section {
-            background: var(--light-bg);
+            background:
+                radial-gradient(circle at top left, rgba(0, 168, 255, 0.12), transparent 32%),
+                radial-gradient(circle at bottom right, rgba(245, 87, 108, 0.08), transparent 28%),
+                linear-gradient(180deg, #f7fbff 0%, #eef5fb 100%);
+        }
+        
+        .portfolio-showcase {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            border-radius: 32px;
+            padding: 2rem;
+            box-shadow: 0 28px 70px rgba(10, 37, 64, 0.08);
+            backdrop-filter: blur(12px);
+        }
+        
+        .portfolio-intro {
+            background: linear-gradient(135deg, #0d1b2a 0%, #17324d 55%, #1c4b74 100%);
+            color: white;
+            border-radius: 28px;
+            padding: 2.5rem;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(13, 27, 42, 0.28);
+        }
+        
+        .portfolio-intro::before {
+            content: '';
+            position: absolute;
+            inset: auto -10% -30% auto;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .portfolio-intro::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -30px;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: rgba(0, 168, 255, 0.14);
+            filter: blur(6px);
+        }
+        
+        .portfolio-intro > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .portfolio-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 1rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.25rem;
+        }
+        
+        .portfolio-intro h3 {
+            font-size: 2rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        .portfolio-intro p {
+            color: rgba(255, 255, 255, 0.82);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .portfolio-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .portfolio-metric {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 1rem 1.1rem;
+        }
+        
+        .portfolio-metric strong {
+            display: block;
+            font-size: 1.7rem;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+        
+        .portfolio-metric span {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.95rem;
         }
         
         .portfolio-card {
-            background: white;
-            border-radius: 24px;
+            background: linear-gradient(180deg, #ffffff 0%, #f9fbfd 100%);
+            border-radius: 28px;
             overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 20px 45px rgba(10, 37, 64, 0.09);
+            border: 1px solid rgba(13, 110, 253, 0.08);
+            height: 100%;
         }
         
         .portfolio-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 65px rgba(10, 37, 64, 0.14);
         }
         
         .portfolio-image {
             position: relative;
             overflow: hidden;
-            height: 250px;
+            height: 320px;
+            background: linear-gradient(135deg, #dfefff 0%, #f7fbff 100%);
         }
         
         .portfolio-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            object-position: top center;
+            transition: transform 0.6s ease;
         }
         
         .portfolio-card:hover .portfolio-image img {
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
         
         .portfolio-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 102, 204, 0.8);
+            inset: 0;
+            background: linear-gradient(180deg, rgba(7, 27, 49, 0.06) 0%, rgba(7, 27, 49, 0.78) 100%);
             display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            align-items: flex-end;
+            justify-content: space-between;
+            padding: 1.5rem;
         }
         
-        .portfolio-card:hover .portfolio-overlay {
-            opacity: 1;
+        .portfolio-project-type {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.55rem 0.95rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            backdrop-filter: blur(10px);
         }
         
         .portfolio-links {
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
         }
         
         .portfolio-link {
-            width: 50px;
-            height: 50px;
-            background: white;
+            width: 52px;
+            height: 52px;
+            background: rgba(255, 255, 255, 0.96);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -568,45 +767,121 @@
             color: var(--primary-blue);
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
         }
         
         .portfolio-link:hover {
             background: var(--primary-blue);
             color: white;
-            transform: scale(1.1);
+            transform: translateY(-3px);
         }
         
         .portfolio-content {
             padding: 2rem;
         }
         
-        .portfolio-content h5 {
-            font-size: 1.4rem;
+        .portfolio-label {
+            display: inline-block;
+            margin-bottom: 0.85rem;
+            color: var(--primary-blue);
+            font-size: 0.82rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        
+        .portfolio-content h5 {
+            font-size: 1.55rem;
+            font-weight: 700;
+            margin-bottom: 0.9rem;
             color: var(--text-primary);
         }
         
         .portfolio-content p {
             color: var(--text-secondary);
-            line-height: 1.7;
+            line-height: 1.75;
             margin-bottom: 1.5rem;
+        }
+        
+        .portfolio-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #38536c;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        
+        .portfolio-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
         }
         
         .portfolio-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.6rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
         }
         
         .tag {
-            background: linear-gradient(135deg, rgba(0, 102, 204, 0.1), rgba(0, 168, 255, 0.1));
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.09), rgba(0, 168, 255, 0.14));
             color: var(--primary-blue);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            padding: 0.38rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            border: 1px solid rgba(0, 102, 204, 0.08);
+        }
+        
+        @media (max-width: 991.98px) {
+            .portfolio-showcase {
+                padding: 1.25rem;
+            }
+        
+            .portfolio-intro {
+                padding: 2rem;
+            }
+        
+            .portfolio-intro h3 {
+                font-size: 1.7rem;
+            }
+        
+            .portfolio-image {
+                height: 280px;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .portfolio-metrics {
+                grid-template-columns: 1fr;
+            }
+        
+            .portfolio-content,
+            .portfolio-intro {
+                padding: 1.5rem;
+            }
+        
+            .portfolio-overlay {
+                padding: 1rem;
+            }
+        
+            .portfolio-project-type {
+                font-size: 0.78rem;
+            }
+        
+            .portfolio-link {
+                width: 46px;
+                height: 46px;
+            }
         }
         
         /* Case Study Section */
@@ -693,6 +968,34 @@
             border-radius: 24px;
             padding: 3rem;
             border: 1px solid rgba(0, 102, 204, 0.1);
+        }
+
+        .about-highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .about-highlight {
+            background: white;
+            border: 1px solid rgba(0, 102, 204, 0.08);
+            border-radius: 20px;
+            padding: 1.35rem 1.15rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .about-highlight strong {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+            color: var(--text-primary);
+        }
+
+        .about-highlight span {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.6;
         }
         
         /* Why Choose Us - Redesigned */
@@ -814,6 +1117,14 @@
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        .testimonial-author img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
         
         .author-info h5 {
             font-size: 1.1rem;
@@ -865,22 +1176,20 @@
         
         .client-logo {
             background: var(--light-bg);
-            border-radius: 12px;
-            padding: 2rem 1rem;
-            height: 120px;
+            border-radius: 18px;
+            padding: 1.35rem 1rem;
+            min-height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid rgba(0, 0, 0, 0.05);
-            filter: grayscale(100%);
-            opacity: 0.7;
+            opacity: 0.92;
         }
         
         .client-logo:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
-            filter: grayscale(0%);
             opacity: 1;
         }
         
@@ -888,6 +1197,16 @@
             max-width: 100%;
             max-height: 60px;
             object-fit: contain;
+        }
+
+        .client-logo .client-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #333;
+            text-align: center;
+            padding: 0 0.5rem;
+            display: block;
+            line-height: 1.4;
         }
         
         /* Contact Form - Premium Design */
@@ -897,6 +1216,64 @@
             padding: 3rem;
             box-shadow: var(--shadow-lg);
             border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info-panel {
+            background: linear-gradient(135deg, #0d1b2a 0%, #16324b 100%);
+            color: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            height: 100%;
+            box-shadow: 0 24px 60px rgba(13, 27, 42, 0.24);
+        }
+
+        .contact-info-panel h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-panel p {
+            color: rgba(255, 255, 255, 0.78);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-points {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.9rem;
+            padding: 1rem;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .contact-point i {
+            font-size: 1.1rem;
+            color: #7cd2ff;
+            margin-top: 0.15rem;
+        }
+
+        .contact-point strong {
+            display: block;
+            font-size: 0.96rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-point span,
+        .contact-point a {
+            color: rgba(255, 255, 255, 0.76);
+            text-decoration: none;
+        }
+
+        .contact-point a:hover {
+            color: white;
         }
         
         .form-label {
@@ -994,6 +1371,12 @@
             transform: translateY(-5px) rotate(5deg);
             box-shadow: 0 8px 20px rgba(0, 168, 255, 0.4);
             color: white;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+            margin: 2rem 0 1.5rem;
         }
         
         /* WhatsApp Floating Button */
@@ -1507,6 +1890,14 @@
                 margin-top: 0.5rem;
                 margin-right: 0.5rem;
             }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-items {
+                justify-content: flex-start;
+            }
             
             /* Services */
             .service-card {
@@ -1537,6 +1928,10 @@
             /* Portfolio */
             .portfolio-image {
                 height: 180px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
             }
             
             .portfolio-content {
@@ -1615,6 +2010,10 @@
                 padding: 1.5rem;
                 border-radius: 16px;
             }
+
+            .about-highlight-grid {
+                grid-template-columns: 1fr;
+            }
             
             .about-content p {
                 font-size: 0.95rem;
@@ -1679,6 +2078,10 @@
             .contact-form-wrapper {
                 padding: 1.5rem;
                 border-radius: 20px;
+            }
+
+            .contact-info-panel {
+                padding: 1.75rem;
             }
             
             .form-label {
@@ -2229,12 +2632,15 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-10 mx-auto text-center hero-content">
+                    <div class="hero-badge" data-aos="fade-up">
+                        <i class="bi bi-building-check"></i> Digital Marketing and Web Solutions Company
+                    </div>
                     <h1 class="hero-title" data-aos="fade-up">
-                        We Build Digital Presence That <br>
-                        <span class="gradient-text">Actually Stands Out</span>
+                        Helping Brands Build a <br>
+                        <span class="gradient-text">Professional Digital Presence</span>
                     </h1>
                     <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
-                        Professional SEO • Strategic Digital Marketing • Creative Content • Paid Advertising • Web Development • Branding Excellence
+                        Strategic digital marketing, business websites, and branded content designed to help companies look credible, communicate clearly, and grow with confidence.
                     </p>
                     <div class="d-flex gap-3 justify-content-center flex-wrap mt-4" data-aos="fade-up" data-aos-delay="400">
                         <a href="#contact" class="btn-primary-modern">
@@ -2243,6 +2649,29 @@
                         <a href="https://wa.me/917990288858?text=Hi%20A2Z%20Clicks!%20I'm%20interested%20in%20your%20services." class="btn-outline-modern" target="_blank">
                             <i class="bi bi-whatsapp me-2"></i>Chat With Us
                         </a>
+                    </div>
+                    <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
+                        <div class="hero-stat-card">
+                            <strong>360+</strong>
+                            <span>Digital support across branding, performance, and web presence.</span>
+                        </div>
+                        <div class="hero-stat-card">
+                            <strong>4</strong>
+                            <span>Featured website projects now showcased in the portfolio.</span>
+                        </div>
+                        <div class="hero-stat-card">
+                            <strong>24h</strong>
+                            <span>Fast response for project discussions, revisions, and support.</span>
+                        </div>
+                    </div>
+                    <div class="trust-strip" data-aos="fade-up" data-aos-delay="600">
+                        <div class="trust-strip-label">Trusted for company presentation, marketing, and web execution</div>
+                        <div class="trust-items">
+                            <span class="trust-item"><i class="bi bi-check2-circle"></i> Professional Web Design</span>
+                            <span class="trust-item"><i class="bi bi-check2-circle"></i> Social Media Marketing</span>
+                            <span class="trust-item"><i class="bi bi-check2-circle"></i> Brand-Focused Content</span>
+                            <span class="trust-item"><i class="bi bi-check2-circle"></i> Business Growth Strategy</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2256,7 +2685,7 @@
                 <div class="col-12 text-center">
                     <h2 class="section-title" data-aos="fade-up">Our Services</h2>
                     <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                        Comprehensive digital solutions tailored to your business needs
+                        End-to-end services that help your business look more established, communicate more clearly, and generate better results online
                     </p>
                 </div>
             </div>
@@ -2322,103 +2751,167 @@
                 <div class="col-12 text-center">
                     <h2 class="section-title" data-aos="fade-up">Our Portfolio</h2>
                     <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                        Showcasing our work and creative excellence
+                        Professional website work presented with clear strategy, polished visuals, and modern execution
                     </p>
                 </div>
             </div>
-            <div class="row g-4">
-                <!-- Portfolio Item 1 -->
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="portfolio-card">
-                        <div class="portfolio-image">
-                            <img src="https://via.placeholder.com/600x400/0066cc/ffffff?text=Zyro+Visual" alt="Zyro Visual - Professional Video Editing Portfolio" loading="lazy">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-links">
-                            <a href="https://zyrovisual.com/" target="_blank" class="portfolio-link" aria-label="View on Instagram">
-                                <i class="bi bi-instagram"></i>
-                            </a>
+            <div class="portfolio-showcase">
+                <div class="row g-4 align-items-stretch">
+                    <div class="col-lg-4" data-aos="fade-right" data-aos-delay="100">
+                        <div class="portfolio-intro">
+                            <span class="portfolio-eyebrow">
+                                <i class="bi bi-stars"></i> Featured Web Projects
+                            </span>
+                            <h3>Designed to feel credible, premium, and ready for business.</h3>
+                            <p>
+                                We create websites that help businesses look serious online. From educational institutions to trading companies and creative brands, every project is structured to communicate trust, clarity, and professionalism.
+                            </p>
+                            <a href="#contact" class="btn btn-outline-modern">Start Your Website Project</a>
+                            <div class="portfolio-metrics">
+                                <div class="portfolio-metric">
+                                    <strong>4</strong>
+                                    <span>Featured live websites</span>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-content">
-                            <h5>Zyro Visual</h5>
-                            <p>Professional video editing portfolio showcasing cinematic quality edits, motion graphics, and post-production excellence. A complete brand identity with modern design and seamless user experience.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Video Editing</span>
-                                <span class="tag">Portfolio</span>
-                                <span class="tag">Branding</span>
+                                <div class="portfolio-metric">
+                                    <strong>100%</strong>
+                                    <span>Responsive presentation style</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Portfolio Item 2 -->
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="portfolio-card">
-                        <div class="portfolio-image">
-                            <img src="https://via.placeholder.com/600x400/00a8ff/ffffff?text=Pinak+Edits" alt="Pinak Edits - Video Editing Services" loading="lazy">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-links">
-                                    <a href="https://pinakedits.netlify.app/" target="_blank" class="portfolio-link" aria-label="View on Instagram">
-                                        <i class="bi bi-instagram"></i>
-                                    </a>
-                                </div>
+                    <div class="col-lg-8">
+                        <div class="portfolio-grid">
+                            <div data-aos="fade-up" data-aos-delay="150">
+                                <article class="portfolio-card">
+                                    <div class="portfolio-image">
+                                        <img src="https://image.thum.io/get/width/1200/crop/900/https://jaykhodiyarglobaltrade.com/" alt="Jay Khodiyar Global Trade website homepage preview" loading="lazy">
+                                        <div class="portfolio-overlay">
+                                            <span class="portfolio-project-type">
+                                                <i class="bi bi-window"></i> Business Website
+                                            </span>
+                                            <div class="portfolio-links">
+                                                <a href="https://jaykhodiyarglobaltrade.com/" target="_blank" rel="noopener noreferrer" class="portfolio-link" aria-label="Open Jay Khodiyar Global Trade website">
+                                                    <i class="bi bi-box-arrow-up-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="portfolio-content">
+                                        <span class="portfolio-label">Corporate Presence</span>
+                                        <h5>Jay Khodiyar Global Trade</h5>
+                                        <div class="portfolio-meta">
+                                            <span><i class="bi bi-geo-alt"></i> Rajkot</span>
+                                            <span><i class="bi bi-laptop"></i> Responsive Web Design</span>
+                                        </div>
+                                        <p>
+                                            A strong business-focused website crafted to present products and company credibility with a clean, trustworthy layout. The structure supports professional brand communication and a smooth viewing experience across devices.
+                                        </p>
+                                        <div class="portfolio-tags">
+                                            <span class="tag">Web Design</span>
+                                            <span class="tag">Business Branding</span>
+                                            <span class="tag">Responsive Layout</span>
+                                        </div>
+                                    </div>
+                                </article>
                             </div>
-                        </div>
-                        <div class="portfolio-content">
-                            <h5>Pinak Edits</h5>
-                            <p>Professional video editing services platform offering cinematic quality edits, motion graphics, and post-production excellence.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Video Editing</span>
-                                <span class="tag">Motion Graphics</span>
-                                <span class="tag">Post-Production</span>
+                            <div data-aos="fade-up" data-aos-delay="250">
+                                <article class="portfolio-card">
+                                    <div class="portfolio-image">
+                                        <img src="https://image.thum.io/get/width/1200/crop/900/https://maplewoodschool.in/" alt="Maplewood School website homepage preview" loading="lazy">
+                                        <div class="portfolio-overlay">
+                                            <span class="portfolio-project-type">
+                                                <i class="bi bi-mortarboard"></i> Education Website
+                                            </span>
+                                            <div class="portfolio-links">
+                                                <a href="https://maplewoodschool.in/" target="_blank" rel="noopener noreferrer" class="portfolio-link" aria-label="Open Maplewood School website">
+                                                    <i class="bi bi-box-arrow-up-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="portfolio-content">
+                                        <span class="portfolio-label">Institutional Website</span>
+                                        <h5>Maplewood School</h5>
+                                        <div class="portfolio-meta">
+                                            <span><i class="bi bi-people"></i> Parent-Friendly Experience</span>
+                                            <span><i class="bi bi-grid"></i> Organized Information Flow</span>
+                                        </div>
+                                        <p>
+                                            An education-centered website designed to communicate trust, campus identity, and essential information with clarity. The visual presentation helps the school feel more established, accessible, and modern online.
+                                        </p>
+                                        <div class="portfolio-tags">
+                                            <span class="tag">School Website</span>
+                                            <span class="tag">Professional UI</span>
+                                            <span class="tag">Content Structure</span>
+                                        </div>
+                                    </div>
+                                </article>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Social Media Content -->
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="portfolio-card">
-                        <div class="portfolio-image">
-                            <img src="https://via.placeholder.com/600x400/f5576c/ffffff?text=Social+Media+Content" alt="Social Media Marketing Campaigns" loading="lazy">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-links">
-                                    <a href="https://www.instagram.com/a2z__clicks/" target="_blank" class="portfolio-link" aria-label="View Instagram Profile">
-                                        <i class="bi bi-instagram"></i>
-                                    </a>
-                                </div>
+                            <div data-aos="fade-up" data-aos-delay="350">
+                                <article class="portfolio-card">
+                                    <div class="portfolio-image">
+                                        <img src="https://image.thum.io/get/width/1200/crop/900/https://zyrovisual.com/" alt="Zyro Visual website homepage preview" loading="lazy">
+                                        <div class="portfolio-overlay">
+                                            <span class="portfolio-project-type">
+                                                <i class="bi bi-camera-reels"></i> Creative Portfolio
+                                            </span>
+                                            <div class="portfolio-links">
+                                                <a href="https://zyrovisual.com/" target="_blank" rel="noopener noreferrer" class="portfolio-link" aria-label="Open Zyro Visual website">
+                                                    <i class="bi bi-box-arrow-up-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="portfolio-content">
+                                        <span class="portfolio-label">Creative Brand Site</span>
+                                        <h5>Zyro Visual</h5>
+                                        <div class="portfolio-meta">
+                                            <span><i class="bi bi-brush"></i> Visual Portfolio</span>
+                                            <span><i class="bi bi-phone"></i> Mobile-Friendly Layout</span>
+                                        </div>
+                                        <p>
+                                            A modern visual-first portfolio designed to present creative services with impact. The layout highlights brand personality while keeping the browsing experience sharp, structured, and professional.
+                                        </p>
+                                        <div class="portfolio-tags">
+                                            <span class="tag">Portfolio Website</span>
+                                            <span class="tag">Creative Direction</span>
+                                            <span class="tag">Modern UI</span>
+                                        </div>
+                                    </div>
+                                </article>
                             </div>
-                        </div>
-                        <div class="portfolio-content">
-                            <h5>Social Media Content</h5>
-                            <p>Engaging social media campaigns, reels, and posts that drive engagement and build brand awareness across Instagram, Facebook, and other platforms.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Social Media</span>
-                                <span class="tag">Content Creation</span>
-                                <span class="tag">Engagement</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Graphics Work -->
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="portfolio-card">
-                        <div class="portfolio-image">
-                            <img src="https://via.placeholder.com/600x400/667eea/ffffff?text=Branding+%26+Graphics" alt="Branding and Graphics Design Work" loading="lazy">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-links">
-                                    <a href="https://www.instagram.com/a2z__clicks/" target="_blank" class="portfolio-link" aria-label="View on Instagram">
-                                        <i class="bi bi-instagram"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-content">
-                            <h5>Branding & Graphics</h5>
-                            <p>Complete branding solutions including logos, business cards, social media graphics, and marketing materials that elevate your brand presence.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Branding</span>
-                                <span class="tag">Logo Design</span>
-                                <span class="tag">Graphics</span>
+                            <div data-aos="fade-up" data-aos-delay="450">
+                                <article class="portfolio-card">
+                                    <div class="portfolio-image">
+                                        <img src="https://image.thum.io/get/width/1200/crop/900/https://pinakedits.netlify.app/" alt="Pinak Edits website homepage preview" loading="lazy">
+                                        <div class="portfolio-overlay">
+                                            <span class="portfolio-project-type">
+                                                <i class="bi bi-film"></i> Service Website
+                                            </span>
+                                            <div class="portfolio-links">
+                                                <a href="https://pinakedits.netlify.app/" target="_blank" rel="noopener noreferrer" class="portfolio-link" aria-label="Open Pinak Edits website">
+                                                    <i class="bi bi-box-arrow-up-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="portfolio-content">
+                                        <span class="portfolio-label">Creative Service Platform</span>
+                                        <h5>Pinak Edits</h5>
+                                        <div class="portfolio-meta">
+                                            <span><i class="bi bi-play-btn"></i> Video Editing Services</span>
+                                            <span><i class="bi bi-layout-text-window"></i> Conversion-Focused Pages</span>
+                                        </div>
+                                        <p>
+                                            A service website built to showcase editing expertise, explain offerings clearly, and guide visitors toward enquiries. The design balances visual energy with easy-to-follow business communication.
+                                        </p>
+                                        <div class="portfolio-tags">
+                                            <span class="tag">Service Website</span>
+                                            <span class="tag">Creative Business</span>
+                                            <span class="tag">Lead Generation</span>
+                                        </div>
+                                    </div>
+                                </article>
                             </div>
                         </div>
                     </div>
@@ -2435,13 +2928,27 @@
                     <div class="text-center mb-5">
                         <h2 class="section-title" data-aos="fade-up">About A2Z Clicks Digital</h2>
                         <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                            Your trusted partner in digital transformation
+                            A focused digital partner for brands that want to look more established and perform better online
                         </p>
                     </div>
                     <div class="about-content" data-aos="fade-up" data-aos-delay="200">
                         <p class="lead text-center mb-0" style="line-height: 2;">
-                            A2Z Clicks Digital is a premier SEO and digital marketing agency committed to empowering businesses in the digital landscape. We seamlessly blend cutting-edge SEO strategies with innovative technology and strategic marketing expertise to deliver comprehensive solutions that accelerate growth and drive measurable success. Our dedicated team of SEO specialists and digital marketing professionals collaborates closely with each client to deeply understand their unique challenges and objectives, consistently delivering results that surpass expectations. From optimizing websites for search engines to producing compelling content and executing sophisticated, data-driven marketing campaigns, we stand as your complete partner in digital transformation and business evolution.
+                            A2Z Clicks Digital helps businesses strengthen how they appear, communicate, and grow online. We combine digital marketing, website design, content creation, paid campaigns, and branding support into one streamlined service approach. Our focus is simple: build professional digital experiences that make businesses easier to trust, easier to understand, and easier to choose.
                         </p>
+                        <div class="about-highlight-grid">
+                            <div class="about-highlight">
+                                <strong>Professional presentation</strong>
+                                <span>We shape websites and marketing assets so your brand feels credible and business-ready.</span>
+                            </div>
+                            <div class="about-highlight">
+                                <strong>Clear execution</strong>
+                                <span>From strategy to design and content, every part of the work is aligned to a clear business goal.</span>
+                            </div>
+                            <div class="about-highlight">
+                                <strong>Growth-minded delivery</strong>
+                                <span>We focus on visibility, enquiries, engagement, and better conversion opportunities.</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2455,7 +2962,7 @@
                 <div class="col-12 text-center">
                     <h2 class="section-title" data-aos="fade-up">Why Choose Us</h2>
                     <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                        The advantages that set us apart from the competition
+                        Built for businesses that need reliable execution, cleaner presentation, and practical digital growth
                     </p>
                 </div>
             </div>
@@ -2466,8 +2973,8 @@
                         <div class="feature-icon">
                             <i class="bi bi-people-fill"></i>
                         </div>
-                        <h5 class="fw-bold mb-3">Expert Team</h5>
-                        <p class="text-muted mb-0">Seasoned professionals with extensive experience dedicated to delivering exceptional results for your success.</p>
+                        <h5 class="fw-bold mb-3">Business-First Thinking</h5>
+                        <p class="text-muted mb-0">We design and market with clarity, positioning, and trust in mind so your company looks stronger online.</p>
                     </div>
                 </div>
                 <!-- Feature 2 -->
@@ -2476,8 +2983,8 @@
                         <div class="feature-icon">
                             <i class="bi bi-wallet2"></i>
                         </div>
-                        <h5 class="fw-bold mb-3">Competitive Pricing</h5>
-                        <p class="text-muted mb-0">Premium quality services at budget-friendly rates, ensuring maximum return on your investment.</p>
+                        <h5 class="fw-bold mb-3">Practical Value</h5>
+                        <p class="text-muted mb-0">You get premium-looking work, structured communication, and focused delivery without unnecessary complexity.</p>
                     </div>
                 </div>
                 <!-- Feature 3 -->
@@ -2486,8 +2993,8 @@
                         <div class="feature-icon">
                             <i class="bi bi-lightbulb-fill"></i>
                         </div>
-                        <h5 class="fw-bold mb-3">Creative Innovation</h5>
-                        <p class="text-muted mb-0">Out-of-the-box thinking and innovative strategies uniquely tailored to your specific business objectives.</p>
+                        <h5 class="fw-bold mb-3">Creative With Structure</h5>
+                        <p class="text-muted mb-0">We keep the creative side sharp while making sure layouts, content, and campaigns stay business-focused.</p>
                     </div>
                 </div>
                 <!-- Feature 4 -->
@@ -2496,8 +3003,8 @@
                         <div class="feature-icon">
                             <i class="bi bi-star-fill"></i>
                         </div>
-                        <h5 class="fw-bold mb-3">Client First</h5>
-                        <p class="text-muted mb-0">Your satisfaction and success are our ultimate priorities, driving everything we do.</p>
+                        <h5 class="fw-bold mb-3">Responsive Support</h5>
+                        <p class="text-muted mb-0">Fast replies, collaboration, and practical recommendations help keep every project moving smoothly.</p>
                     </div>
                 </div>
             </div>
@@ -2602,52 +3109,6 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section-padding testimonials-section">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-12 text-center">
-                    <h2 class="section-title" data-aos="fade-up">Client Testimonials</h2>
-                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                        What our clients say about working with us
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div class="coming-soon-placeholder" data-aos="fade-up" data-aos-delay="200">
-                        <i class="bi bi-chat-quote display-1 text-muted mb-3"></i>
-                        <h3 class="text-muted">Coming Soon</h3>
-                        <p class="text-muted">Client testimonials will be added here soon.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Clients Section -->
-    <section class="section-padding clients-section">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-12 text-center">
-                    <h2 class="section-title" data-aos="fade-up">Our Clients</h2>
-                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                        Trusted by businesses across industries
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div class="coming-soon-placeholder" data-aos="fade-up" data-aos-delay="200">
-                        <i class="bi bi-people display-1 text-muted mb-3"></i>
-                        <h3 class="text-muted">Coming Soon</h3>
-                        <p class="text-muted">Client logos will be added here soon.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section id="contact" class="section-padding bg-light">
         <div class="container">
@@ -2655,11 +3116,42 @@
                 <div class="col-12 text-center">
                     <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
                     <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                        Ready to elevate your business? Let's start the conversation
+                        Share your requirement and we will help you plan the right website, marketing, or branding solution
                     </p>
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-5" data-aos="fade-right" data-aos-delay="150">
+                    <div class="contact-info-panel">
+                        <h3>Let's build a stronger company presence online.</h3>
+                        <p>
+                            Whether you need a professional website, better social media presentation, or complete digital support, we can help shape the right direction for your business.
+                        </p>
+                        <div class="contact-points">
+                            <div class="contact-point">
+                                <i class="bi bi-telephone-fill"></i>
+                                <div>
+                                    <strong>Call or WhatsApp</strong>
+                                    <a href="tel:+917990288858">+91 7990288858</a>
+                                </div>
+                            </div>
+                            <div class="contact-point">
+                                <i class="bi bi-envelope-fill"></i>
+                                <div>
+                                    <strong>Email</strong>
+                                    <a href="mailto:krupalmehta8@gmail.com">krupalmehta8@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-point">
+                                <i class="bi bi-globe-central-south-asia"></i>
+                                <div>
+                                    <strong>Services</strong>
+                                    <span>Web design, SEO, paid ads, branding, and content creation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
                     <div class="contact-form-wrapper">
                         <form id="contactForm" action="https://formsubmit.co/krupalmehta8@gmail.com" method="POST">
@@ -2711,10 +3203,39 @@
     <!-- Footer -->
     <footer>
         <div class="container">
+            <div class="row g-4 align-items-start">
+                <div class="col-lg-4">
+                    <div class="footer-brand">A2Z Clicks Digital</div>
+                    <p class="footer-info mb-0">
+                        Professional digital marketing and website solutions for businesses that want stronger branding, better visibility, and a more credible online presence.
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="footer-info">
+                        <div><i class="bi bi-telephone-fill"></i> +91 7990288858</div>
+                        <div><i class="bi bi-envelope-fill"></i> krupalmehta8@gmail.com</div>
+                        <div><i class="bi bi-instagram"></i> @a2z__clicks</div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="social-links justify-content-lg-end">
+                        <a href="https://www.instagram.com/a2z__clicks/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/krupalmehta2/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="https://wa.me/917990288858?text=Hi%20A2Z%20Clicks!%20I'm%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
             <div class="row">
                 <div class="col-12">
                     <p class="text-center text-white-50 mb-0">
-                        Created by A2Z Clicks
+                        Copyright 2026 A2Z Clicks Digital. Built for modern business growth.
                     </p>
                 </div>
             </div>
