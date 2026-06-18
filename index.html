@@ -117,6 +117,8 @@
             {"@type": "Offer","itemOffered": {"@type": "Service","name": "Social Media Marketing","description": "Strategic management, content, and community growth."}},
             {"@type": "Offer","itemOffered": {"@type": "Service","name": "Branding & Graphic Design","description": "Distinctive identity, logo, and visual language."}},
             {"@type": "Offer","itemOffered": {"@type": "Service","name": "Content Creation","description": "Copywriting, video, and visuals that engage."}},
+            {"@type": "Offer","itemOffered": {"@type": "Service","name": "Content Planning & Strategy","description": "Monthly content calendars, reel scripts, and platform-specific posting strategy."}},
+            {"@type": "Offer","itemOffered": {"@type": "Service","name": "Google Business Profile Optimization","description": "GBP setup, optimization, and local search ranking management."}},
             {"@type": "Offer","itemOffered": {"@type": "Service","name": "Lead Generation","description": "High-intent lead generation through integrated campaigns."}}
           ]
         }
@@ -161,11 +163,14 @@
        Modern, spacious, bold typography, subtle motion
     ------------------------------------------------ */
     :root {
-      --primary: #1a1a2e;
-      --secondary: #16213e;
-      --accent-1: #e94560;
-      --accent-2: #0f3460;
-      --accent-3: #533483;
+      /* Brand palette — pulled directly from the A2Z Clicks Digital logo */
+      --primary: #000000;
+      --secondary: #0d0d0d;
+      --accent-1: #fa7506;      /* signature orange */
+      --accent-1-dark: #c25a00; /* hover / pressed state */
+      --accent-2: #fcaa2c;      /* gold — gradient partner to orange */
+      --accent-2-text: #b35900; /* deep amber for text-on-light (AA contrast) */
+      --accent-3: #1c1c1c;
       --light: #f8f9fc;
       --gray-100: #f0f2f6;
       --gray-200: #e2e6ed;
@@ -193,32 +198,27 @@
     /* Glass Nav */
     .navbar-glass {
       backdrop-filter: blur(18px) saturate(180%);
-      background: rgba(26, 26, 46, 0.88) !important;
+      background: rgba(0, 0, 0, 0.88) !important;
       border-bottom: 1px solid rgba(255,255,255,0.06);
-      padding: 0.9rem 0;
+      padding: 0.7rem 0;
       transition: var(--transition);
     }
     .navbar-glass.scrolled {
-      background: rgba(8, 8, 20, 0.96) !important;
-      padding: 0.5rem 0;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+      background: rgba(0, 0, 0, 0.97) !important;
+      padding: 0.4rem 0;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
     }
     .navbar-brand {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1.65rem;
-      letter-spacing: -0.5px;
-      background: linear-gradient(135deg, #f8f9fc 0%, #cbd5e1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      display: flex;
+      align-items: center;
+      padding: 0;
     }
-    .navbar-brand i {
-      background: linear-gradient(135deg, #e94560, #533483);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-right: 6px;
+    .navbar-brand img {
+      height: 46px;
+      width: auto;
+      transition: var(--transition);
     }
+    .navbar-glass.scrolled .navbar-brand img { height: 38px; }
     .nav-link {
       color: rgba(255,255,255,0.8) !important;
       font-weight: 500;
@@ -244,7 +244,7 @@
     
     /* Hero — no template vibe */
     .hero {
-      background: linear-gradient(165deg, #0b0c10 0%, #1a1a2e 45%, #16213e 100%);
+      background: linear-gradient(165deg, #000000 0%, #0d0d0d 45%, #161616 100%);
       color: white;
       padding: 170px 0 100px;
       position: relative;
@@ -257,8 +257,8 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 70% 20%, rgba(233,69,96,0.12) 0%, transparent 50%),
-                  radial-gradient(circle at 20% 80%, rgba(83,52,131,0.10) 0%, transparent 45%);
+      background: radial-gradient(circle at 70% 20%, rgba(250,117,6,0.16) 0%, transparent 50%),
+                  radial-gradient(circle at 20% 80%, rgba(252,170,44,0.08) 0%, transparent 45%);
       pointer-events: none;
     }
     .hero-grid {
@@ -288,7 +288,7 @@
       margin-bottom: 1.5rem;
     }
     .hero h1 .highlight {
-      background: linear-gradient(135deg, #e94560, #f09819);
+      background: linear-gradient(135deg, #fa7506, #fcaa2c);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -301,18 +301,18 @@
       margin-bottom: 2.5rem;
     }
     .btn-primary-custom {
-      background: linear-gradient(135deg, #e94560, #c23152);
+      background: linear-gradient(135deg, #fa7506, #c25a00);
       border: none;
       padding: 0.9rem 2.5rem;
       border-radius: 60px;
       font-weight: 600;
       color: white;
       transition: var(--transition);
-      box-shadow: 0 12px 28px -8px rgba(233,69,96,0.35);
+      box-shadow: 0 12px 28px -8px rgba(250,117,6,0.4);
     }
     .btn-primary-custom:hover {
       transform: translateY(-4px);
-      box-shadow: 0 18px 40px -8px rgba(233,69,96,0.5);
+      box-shadow: 0 18px 40px -8px rgba(250,117,6,0.55);
       color: white;
     }
     .btn-outline-light-custom {
@@ -390,7 +390,7 @@
       left: 0;
       width: 100%;
       height: 5px;
-      background: linear-gradient(90deg, #e94560, #533483);
+      background: linear-gradient(90deg, #fa7506, #fcaa2c);
       opacity: 0;
       transition: var(--transition);
     }
@@ -413,7 +413,7 @@
       transition: var(--transition);
     }
     .service-card:hover .service-icon {
-      background: linear-gradient(135deg, #e94560, #c23152);
+      background: linear-gradient(135deg, #fa7506, #c25a00);
       color: white;
       transform: scale(1.05);
     }
@@ -452,7 +452,7 @@
       font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.3px;
-      color: var(--accent-2);
+      color: var(--accent-2-text);
       margin-bottom: 0.8rem;
     }
     .portfolio-body h5 { font-size: 1.3rem; margin-bottom: 0.4rem; }
@@ -487,7 +487,7 @@
       box-shadow: var(--card-shadow);
     }
     .contact-info {
-      background: linear-gradient(145deg, #0b0c10, #1a1a2e);
+      background: linear-gradient(145deg, #000000, #161616);
       color: white;
       border-radius: 32px;
       padding: 2.8rem 2.5rem;
@@ -511,17 +511,18 @@
     .form-control-custom:focus {
       background: white;
       border-color: var(--accent-1);
-      box-shadow: 0 0 0 4px rgba(233,69,96,0.08);
+      box-shadow: 0 0 0 4px rgba(250,117,6,0.10);
     }
     
     /* Footer */
     .footer-dark {
-      background: #0b0c10;
+      background: #000000;
       color: rgba(255,255,255,0.7);
       padding: 60px 0 30px;
       border-top: 1px solid rgba(255,255,255,0.04);
     }
     .footer-dark h5 { color: white; font-weight: 600; }
+    .footer-logo { height: 54px; width: auto; margin-bottom: 1rem; }
     .social-icon-footer {
       display: inline-flex;
       align-items: center;
@@ -576,12 +577,81 @@
       visibility: hidden;
       transition: var(--transition);
       z-index: 999;
-      box-shadow: 0 8px 25px rgba(233,69,96,0.3);
+      box-shadow: 0 8px 25px rgba(250,117,6,0.35);
     }
     .scroll-top.visible { opacity: 1; visibility: visible; }
     .scroll-top:hover { transform: translateY(-4px); }
     
-    /* Responsive */
+    /* Section eyebrow — small arrow motif echoing the logo mark */
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-2-text);
+      margin-bottom: 0.7rem;
+    }
+    .section-eyebrow.on-dark { color: var(--accent-2); }
+    .section-eyebrow i { font-size: 0.95rem; color: var(--accent-1); }
+
+    /* Portfolio sub-navigation (Websites / Reels) */
+    .portfolio-subnav {
+      display: inline-flex;
+      gap: 0.4rem;
+      background: white;
+      border-radius: 100px;
+      padding: 0.4rem;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 2.5rem;
+    }
+    .portfolio-subnav button {
+      border: none;
+      background: transparent;
+      padding: 0.6rem 1.4rem;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .portfolio-subnav button.active {
+      background: linear-gradient(135deg, #fa7506, #c25a00);
+      color: white;
+    }
+    .portfolio-panel { display: none; }
+    .portfolio-panel.active { display: block; }
+
+    /* Reels grid */
+    .reel-card {
+      background: #000;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: var(--transition);
+      position: relative;
+    }
+    .reel-card:hover { transform: translateY(-8px); box-shadow: 0 30px 70px -20px rgba(0,0,0,0.25); }
+    .reel-rank {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 3;
+      background: linear-gradient(135deg, #fa7506, #fcaa2c);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.78rem;
+      padding: 0.3rem 0.85rem;
+      border-radius: 100px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+    }
+    .reel-card .ig-embed-wrap { min-height: 480px; background: #0d0d0d; }
+    .reel-caption { padding: 1.2rem 1.4rem; background: white; }
+    .reel-caption h6 { font-weight: 700; margin-bottom: 0.2rem; font-size: 1rem; }
+    .reel-caption span { color: var(--text-muted); font-size: 0.85rem; }
     @media (max-width: 992px) {
       .hero h1 { font-size: 3rem; }
       .section-heading { font-size: 2.2rem; }
@@ -594,6 +664,8 @@
       .section-padding { padding: 60px 0; }
       .contact-panel { padding: 1.8rem; }
       .contact-info { padding: 2rem; }
+      .navbar-brand img { height: 38px; }
+      .reel-card .ig-embed-wrap { min-height: 420px; }
     }
     @media (max-width: 480px) {
       .hero h1 { font-size: 2rem; }
@@ -612,7 +684,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-glass" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="#"><i class="bi bi-cpu"></i>A2Z Clicks</a>
+      <a class="navbar-brand" href="#"><img src="assets/logo.webp" alt="A2Z Clicks Digital logo"></a>
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -633,9 +705,9 @@
     <div class="container hero-grid">
       <div class="row align-items-center">
         <div class="col-lg-8" data-aos="fade-up">
-          <div class="hero-badge"><i class="bi bi-rocket-takeoff"></i> Digital agency &amp; web development</div>
+          <div class="hero-badge"><i class="bi bi-graph-up-arrow"></i> Digital marketing, web development &amp; social growth</div>
           <h1>Build <span class="highlight">credibility</span> &amp; drive <span class="highlight">growth</span> online</h1>
-          <p>We combine strategic web development, SEO, paid media, and branding to help your business stand out and scale.</p>
+          <p>We combine web development, SEO, paid media, social media management, content planning, and Google Business Profile optimization to help your business stand out and scale.</p>
           <div class="d-flex flex-wrap gap-3">
             <a href="#contact" class="btn btn-primary-custom"><i class="bi bi-send me-2"></i>Start a project</a>
             <a href="#portfolio" class="btn btn-outline-light-custom"><i class="bi bi-grid-3x3-gap-fill me-2"></i>See our work</a>
@@ -654,21 +726,34 @@
   <section id="services" class="section-padding">
     <div class="container">
       <div class="text-center" data-aos="fade-up">
+        <div class="section-eyebrow"><i class="bi bi-arrow-up-right"></i> Our services</div>
         <h2 class="section-heading">What we deliver</h2>
-        <p class="section-sub">From full-stack development to performance marketing — we cover the full digital spectrum.</p>
+        <p class="section-sub">From full-stack development to performance marketing and day-to-day social growth — we cover the full digital spectrum.</p>
       </div>
       <div class="row g-4">
-        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="50">
           <div class="service-card"><div class="service-icon"><i class="bi bi-code-square"></i></div><h5>Web Development</h5><p>Custom websites, e‑commerce, and web apps with clean code and fast performance.</p></div>
         </div>
-        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="150">
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
           <div class="service-card"><div class="service-icon"><i class="bi bi-graph-up-arrow"></i></div><h5>SEO &amp; Content</h5><p>Organic growth through search-first content, technical SEO, and local visibility.</p></div>
         </div>
-        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="150">
           <div class="service-card"><div class="service-icon"><i class="bi bi-megaphone"></i></div><h5>Paid Advertising</h5><p>Google Ads, Meta Ads, and programmatic campaigns optimized for ROI.</p></div>
         </div>
-        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="250">
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
           <div class="service-card"><div class="service-icon"><i class="bi bi-palette"></i></div><h5>Brand &amp; Creative</h5><p>Distinctive branding, visual identity, and design systems that resonate.</p></div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="250">
+          <div class="service-card"><div class="service-icon"><i class="bi bi-instagram"></i></div><h5>Social Media Marketing</h5><p>Full-funnel management across Instagram, Facebook &amp; LinkedIn — strategy, posting, community, and growth.</p></div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-card"><div class="service-icon"><i class="bi bi-calendar2-week"></i></div><h5>Content Planning</h5><p>Monthly content calendars, reel scripts, and platform-specific posting strategy built around your brand voice.</p></div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="350">
+          <div class="service-card"><div class="service-icon"><i class="bi bi-geo-alt-fill"></i></div><h5>Google Business Profile</h5><p>GBP setup, optimization &amp; review management to dominate local "near me" search and Maps results.</p></div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-card"><div class="service-icon"><i class="bi bi-film"></i></div><h5>Video &amp; Reel Editing</h5><p>Scroll-stopping reels and short-form video edited for retention, reach, and brand consistency.</p></div>
         </div>
       </div>
     </div>
@@ -678,21 +763,76 @@
   <section id="portfolio" class="section-padding" style="background: var(--gray-100);">
     <div class="container">
       <div class="text-center" data-aos="fade-up">
+        <div class="section-eyebrow"><i class="bi bi-arrow-up-right"></i> Our work</div>
         <h2 class="section-heading">Recent work</h2>
-        <p class="section-sub">Websites and digital experiences built for impact.</p>
+        <p class="section-sub">Websites we've built and reels we've grown — real results, not stock mockups.</p>
       </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-          <div class="portfolio-card"><div class="portfolio-img"><img src="https://image.thum.io/get/width/600/crop/800/https://jaykhodiyarglobaltrade.com/" alt="Jay Khodiyar Global Trade" loading="lazy"></div><div class="portfolio-body"><span class="portfolio-tag">Business</span><h5>Jay Khodiyar Global Trade</h5><div class="meta"><span><i class="bi bi-geo-alt"></i> Rajkot</span><span><i class="bi bi-laptop"></i> Web design</span></div></div></div>
+      <div class="text-center">
+        <div class="portfolio-subnav" role="tablist">
+          <button type="button" class="active" data-target="panel-websites">Websites</button>
+          <button type="button" data-target="panel-reels">Top Performing Reels</button>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
-          <div class="portfolio-card"><div class="portfolio-img"><img src="https://image.thum.io/get/width/600/crop/800/https://maplewoodschool.in/" alt="Maplewood School" loading="lazy"></div><div class="portfolio-body"><span class="portfolio-tag">Education</span><h5>Maplewood School</h5><div class="meta"><span><i class="bi bi-people"></i> Parent-centric</span><span><i class="bi bi-grid"></i> Structured</span></div></div></div>
+      </div>
+
+      <!-- Websites panel -->
+      <div class="portfolio-panel active" id="panel-websites">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="portfolio-card"><div class="portfolio-img"><img src="https://image.thum.io/get/width/600/crop/800/https://jaykhodiyarglobaltrade.com/" alt="Jay Khodiyar Global Trade" loading="lazy"></div><div class="portfolio-body"><span class="portfolio-tag">Business</span><h5>Jay Khodiyar Global Trade</h5><div class="meta"><span><i class="bi bi-geo-alt"></i> Rajkot</span><span><i class="bi bi-laptop"></i> Web design</span></div></div></div>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+            <div class="portfolio-card"><div class="portfolio-img"><img src="https://image.thum.io/get/width/600/crop/800/https://maplewoodschool.in/" alt="Maplewood School" loading="lazy"></div><div class="portfolio-body"><span class="portfolio-tag">Education</span><h5>Maplewood School</h5><div class="meta"><span><i class="bi bi-people"></i> Parent-centric</span><span><i class="bi bi-grid"></i> Structured</span></div></div></div>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="portfolio-card"><div class="portfolio-img"><img src="https://image.thum.io/get/width/600/crop/800/https://zyrovisual.com/" alt="Zyro Visual" loading="lazy"></div><div class="portfolio-body"><span class="portfolio-tag">Creative</span><h5>Zyro Visual</h5><div class="meta"><span><i class="bi bi-brush"></i> Portfolio</span><span><i class="bi bi-phone"></i> Mobile-first</span></div></div></div>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
+            <div class="portfolio-card"><div class="portfolio-img"><img src="https://image.thum.io/get/width/600/crop/800/https://pinakedits.netlify.app/" alt="Pinak Edits" loading="lazy"></div><div class="portfolio-body"><span class="portfolio-tag">Service</span><h5>Pinak Edits</h5><div class="meta"><span><i class="bi bi-play-btn"></i> Video editing</span><span><i class="bi bi-layout-text-window"></i> Lead-gen</span></div></div></div>
+          </div>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-          <div class="portfolio-card"><div class="portfolio-img"><img src="https://image.thum.io/get/width/600/crop/800/https://zyrovisual.com/" alt="Zyro Visual" loading="lazy"></div><div class="portfolio-body"><span class="portfolio-tag">Creative</span><h5>Zyro Visual</h5><div class="meta"><span><i class="bi bi-brush"></i> Portfolio</span><span><i class="bi bi-phone"></i> Mobile-first</span></div></div></div>
+      </div>
+
+      <!-- Top Reels panel -->
+      <div class="portfolio-panel" id="panel-reels">
+        <p class="text-center" style="color:var(--text-muted); max-width:560px; margin:-0.5rem auto 2rem; font-size:0.95rem;">
+          Our highest-viewed reels from <a href="https://www.instagram.com/a2z__clicks/" target="_blank" style="color:var(--accent-2-text); font-weight:600;">@a2z__clicks</a> — real organic reach, no boosting.
+        </p>
+        <div class="row g-4">
+          <!--
+            TODO (Krupal): Replace the three permalink URLs below with your actual
+            top-viewed reels from @a2z__clicks, ranked highest views first.
+            Just swap the href in each blockquote's data-instgrm-permalink — nothing else needs to change.
+          -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="reel-card">
+              <span class="reel-rank">🔥 #1 Most viewed</span>
+              <div class="ig-embed-wrap">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/a2z__clicks/reel/REPLACE_WITH_TOP_REEL_1/" data-instgrm-version="14" style="width:100%; margin:0;"></blockquote>
+              </div>
+              <div class="reel-caption"><h6>Top reel #1</h6><span>Add your view-count / topic here</span></div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+            <div class="reel-card">
+              <span class="reel-rank">#2 Most viewed</span>
+              <div class="ig-embed-wrap">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/a2z__clicks/reel/REPLACE_WITH_TOP_REEL_2/" data-instgrm-version="14" style="width:100%; margin:0;"></blockquote>
+              </div>
+              <div class="reel-caption"><h6>Top reel #2</h6><span>Add your view-count / topic here</span></div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="reel-card">
+              <span class="reel-rank">#3 Most viewed</span>
+              <div class="ig-embed-wrap">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/a2z__clicks/reel/REPLACE_WITH_TOP_REEL_3/" data-instgrm-version="14" style="width:100%; margin:0;"></blockquote>
+              </div>
+              <div class="reel-caption"><h6>Top reel #3</h6><span>Add your view-count / topic here</span></div>
+            </div>
+          </div>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
-          <div class="portfolio-card"><div class="portfolio-img"><img src="https://image.thum.io/get/width/600/crop/800/https://pinakedits.netlify.app/" alt="Pinak Edits" loading="lazy"></div><div class="portfolio-body"><span class="portfolio-tag">Service</span><h5>Pinak Edits</h5><div class="meta"><span><i class="bi bi-play-btn"></i> Video editing</span><span><i class="bi bi-layout-text-window"></i> Lead-gen</span></div></div></div>
+        <div class="text-center mt-4">
+          <a href="https://www.instagram.com/a2z__clicks/" target="_blank" class="btn btn-outline-light-custom" style="color:var(--text-dark); border-color:rgba(0,0,0,0.15); background:white;"><i class="bi bi-instagram me-2"></i>See more on Instagram</a>
         </div>
       </div>
     </div>
@@ -703,11 +843,13 @@
     <div class="container">
       <div class="row g-5 align-items-center">
         <div class="col-lg-6" data-aos="fade-right">
+          <div class="section-eyebrow"><i class="bi bi-arrow-up-right"></i> About us</div>
           <h2 class="section-heading" style="font-size:2.5rem;">More than an agency — a growth partner</h2>
           <p style="font-size:1.05rem; color: var(--text-muted); line-height:1.8;">We don't just design and market — we align every deliverable with your business objectives. Our team brings together strategy, creativity, and technology to build digital presences that actually work.</p>
           <div class="about-feature"><i class="bi bi-check-circle-fill"></i><div><h6>Strategy-led development</h6><p>Every website and campaign starts with a clear plan for your audience and goals.</p></div></div>
           <div class="about-feature"><i class="bi bi-check-circle-fill"></i><div><h6>Transparent reporting</h6><p>Regular updates, clear metrics, and honest communication — no fluff.</p></div></div>
           <div class="about-feature"><i class="bi bi-check-circle-fill"></i><div><h6>Agile &amp; responsive</h6><p>We adapt quickly to feedback and market shifts, keeping your projects on track.</p></div></div>
+          <div class="about-feature"><i class="bi bi-check-circle-fill"></i><div><h6>Always-on social presence</h6><p>Ongoing social media management, monthly content calendars, and Google Business Profile optimization to keep you visible every day — not just at launch.</p></div></div>
         </div>
         <div class="col-lg-6" data-aos="fade-left">
           <div class="about-block">
@@ -727,6 +869,7 @@
   <section id="contact" class="section-padding" style="background: var(--gray-100);">
     <div class="container">
       <div class="text-center" data-aos="fade-up">
+        <div class="section-eyebrow"><i class="bi bi-arrow-up-right"></i> Get in touch</div>
         <h2 class="section-heading">Let's talk</h2>
         <p class="section-sub">Tell us about your project — we'll get back within 24 hours.</p>
       </div>
@@ -772,7 +915,7 @@
   <footer class="footer-dark">
     <div class="container">
       <div class="row g-4 align-items-center">
-        <div class="col-md-5"><h5>A2Z Clicks Digital</h5><p style="font-size:0.95rem; max-width:400px;">Digital marketing &amp; web development agency. Building brands that perform.</p></div>
+        <div class="col-md-5"><img src="assets/logo.webp" alt="A2Z Clicks Digital logo" class="footer-logo"><h5>A2Z Clicks Digital</h5><p style="font-size:0.95rem; max-width:400px;">Digital marketing &amp; web development agency. Building brands that perform.</p></div>
         <div class="col-md-4"><div><i class="bi bi-telephone me-2"></i><a href="tel:+917990288858" style="color:rgba(255,255,255,0.7);">+91 7990288858</a></div><div><i class="bi bi-envelope me-2"></i><a href="mailto:krupalmehta8@gmail.com" style="color:rgba(255,255,255,0.7);">krupalmehta8@gmail.com</a></div></div>
         <div class="col-md-3 text-md-end"><a href="https://wa.me/917990288858" class="social-icon-footer"><i class="bi bi-whatsapp"></i></a><a href="https://www.instagram.com/a2z__clicks/" class="social-icon-footer"><i class="bi bi-instagram"></i></a><a href="https://www.linkedin.com/in/krupalmehta2/" class="social-icon-footer"><i class="bi bi-linkedin"></i></a></div>
       </div>
@@ -784,6 +927,7 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script async src="https://www.instagram.com/embed.js"></script>
   <script>
     AOS.init({ duration: 800, once: true, offset: 60 });
     
@@ -795,6 +939,20 @@
     const topBtn = document.getElementById('scrollTopBtn');
     window.addEventListener('scroll', () => { topBtn.classList.toggle('visible', window.scrollY > 400); });
     topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    
+    // Portfolio sub-tabs (Websites / Top Reels)
+    document.querySelectorAll('.portfolio-subnav button').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.portfolio-subnav button').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.portfolio-panel').forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+        document.getElementById(this.dataset.target).classList.add('active');
+        // Re-process Instagram embeds whenever the Reels tab is opened
+        if (this.dataset.target === 'panel-reels' && window.instgrm) {
+          window.instgrm.Embeds.process();
+        }
+      });
+    });
     
     // Smooth nav links
     document.querySelectorAll('a[href^="#"]').forEach(link => {
